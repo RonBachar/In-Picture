@@ -1,35 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Picture Game</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body onload="onInIt()">
-
-    <h1>Choose the right answer:</h1>
-
-
-
-    <div class="container">
-        <img src="" alt="">
-        <h2 class="question"></h2>
-        <div class="answers">
-        </div>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quiz</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Quiz</h1>
+      <div class="container">
+        <img src="" alt="" />
+        <h2></h2>
+        <div class="answers"></div>
+      </div>
+      <div class="victory-container">
+        <img src="./img/victory.jpg" alt="Victory" />
+        <!-- <audio src="audio/victory.mp3"></audio> -->
+      </div>
     </div>
-
-    <div class="victory-container">
-        <img class="" src="img/victory.jpg" alt="">
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>wrong answer. You are now redirected to first question.</p>
+      </div>
     </div>
+    <div class="answers"></div>
+    <div class="message"></div>
 
-
-
-
-    <script src="/In Picture/js/main.js"></script>
-</body>
-
+    <script src="js/main.js"></script>
+  </body>
 </html>

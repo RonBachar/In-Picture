@@ -1,6 +1,6 @@
 "use strict";
 
-// gCurrQuestId = 0 => render the first question from gQuest
+// The questions and answers for the quiz
 
 var gQuest = [
   {
@@ -27,34 +27,37 @@ var gQuest = [
   },
 ];
 
+// The current question index
 var gCurrQuestIdx = 0;
+
+// The audio element for the victory sound effect
 var gVictorySound = new Audio("audio/victory.mp3");
 
-onInIt();
-function onInIt() {
+// Initialize the quiz
+onInit();
+
+function onInit() {
+  // Render the first question
   renderQuestion();
 }
 
 function renderQuestion() {
+  // Get the image element and set its source to the current question image
   var elImg = document.querySelector(".container img");
+  elImg.src = `./img/${gQuest[gCurrQuestIdx].id}.jpg`;
 
-  elImg.src = `/In Picture/img/${gCurrQuestIdx + 1}.jpg`;
-
+  // Get the question element and set its text to the current question
   var elQuestion = document.querySelector(".container h2");
-  var gQuestion = gQuest[gCurrQuestIdx].question;
+  elQuestion.innerHTML = gQuest[gCurrQuestIdx].question;
 
-  elQuestion.innerHTML = gQuestion;
-
+  // Get the answers for the current question and generate HTML for each answer
   var gAnswers = gQuest[gCurrQuestIdx].answers;
-
   var strHTML = "";
-
-  for (let i = 0; i < gAnswers.length; i++) {
-    const currAnswer = gAnswers[i];
-    strHTML += ` <div class="answer answer${i}" onclick="checkAnswer(${i})">${currAnswer}</div>
-    `;
+  for (var i = 0; i < gAnswers.length; i++) {
+    strHTML += `<div class="answer answer${i}" onclick="checkAnswer(${i})">${gAnswers[i]}</div>`;
   }
 
+  // Get the answers container element and set its HTML to the generated answers HTML
   var elAnswers = document.querySelector(".answers");
   elAnswers.innerHTML = strHTML;
 }
@@ -65,7 +68,9 @@ function checkAnswer(answerIdx) {
   if (answerIdx === trueIdx) {
     gCurrQuestIdx++;
   } else {
-    console.log("false");
+    // Display a message indicating that the user clicked on the wrong question
+    var message = "Sorry, that's not the correct answer. Please try again.";
+    alert(message);
   }
 
   if (gCurrQuestIdx === gQuest.length) {
@@ -76,11 +81,14 @@ function checkAnswer(answerIdx) {
 }
 
 function showVictory() {
+  // Get the victory image element and show it
   var elVictoryImg = document.querySelector(".victory-container");
-  elVictoryImg.classList.add = "show";
+  elVictoryImg.classList.add("show");
 
+  // Get the answers container element and hide it
   var elAnswers = document.querySelector(".answers");
-  elAnswers.classList.add = "hide";
+  elAnswers.classList.add("hide");
 
+  // Play the victory sound effect
   gVictorySound.play();
 }

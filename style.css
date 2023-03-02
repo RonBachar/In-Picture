@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1,
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.container img {
+  display: block;
+  margin: 0 auto;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.answers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.answer {
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  text-align: center;
+  flex-basis: 45%;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.answer:hover {
+  background-color: #ccc;
+}
+
+.victory-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 9999;
+}
+
+.victory-container.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.victory-container img {
+  max-width: 600px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.message {
+  display: none;
+}
+img {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .answer {
+    flex-basis: 100%;
+  }
+}
